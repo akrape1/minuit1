@@ -109,7 +109,7 @@ int main(int argc, char **argv) {
   // This allows you to view ROOT-based graphics in your C++ program
   // If you don't want view graphics (eg just read/process/write data files), 
   // this line can be removed
-  TApplication theApp("App", &argc, argv);
+  //TApplication theApp("App", &argc, argv);
 
   TCanvas* canvas = new TCanvas();
   // ***************************************
@@ -216,6 +216,7 @@ int main(int argc, char **argv) {
   // Plot the result.
   hdata->Draw("e");
   myfunc->Draw("same");
+  canvas->SaveAs("./NLLfit.pdf");
 
   // summarize the fitting results
   cout << "\n==========================\n"<<endl;
@@ -230,8 +231,8 @@ int main(int argc, char **argv) {
   }
 
   cout << "\nTo exit, quit ROOT from the File menu of the plot (or use control-C)" << endl;
-  theApp.SetIdleTimer(30,".q");  // set up a failsafe timer to end the program
-  theApp.Run(true);
+  //theApp.SetIdleTimer(30,".q");  // set up a failsafe timer to end the program
+  //theApp.Run(true);
   canvas->Close();
 
   return 0;
